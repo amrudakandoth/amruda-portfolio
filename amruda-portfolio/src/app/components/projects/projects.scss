@@ -1,0 +1,9 @@
+.project-card {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}

@@ -1,0 +1,16 @@
+<div class="chatbot">
+  <div class="chat-window">
+    <div *ngFor="let msg of messages">
+      <p [class.user]="msg.sender === 'user'">
+        {{ msg.text }}
+      </p>
+    </div>
+  </div>
+
+  <input 
+    [(ngModel)]="userInput"
+    (keyup.enter)="sendMessage()"
+    placeholder="Ask about my experience..."
+    aria-label="Chat input"
+  />
+</div>

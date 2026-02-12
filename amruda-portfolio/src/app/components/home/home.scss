@@ -1,0 +1,23 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  min-height: 90vh;
+
+  img {
+    width: 40%;
+  }
+
+  .btn {
+    background: var(--primary);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .btn:hover {
+    opacity: 0.9;
+  }
+}

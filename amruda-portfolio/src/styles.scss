@@ -1,0 +1,15 @@
+// styles.scss
+
+:root {
+  --primary: #008080;   // teal
+  --dark: #1e1e1e;
+  --light: #f8f9fa;
+  --gray: #6c757d;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background: var(--light);
+  color: var(--dark);
+}
