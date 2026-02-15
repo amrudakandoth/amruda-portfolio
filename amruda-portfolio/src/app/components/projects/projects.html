@@ -1,13 +1,145 @@
 <section id="projects">
   <h2>Projects</h2>
+  <p class="section-subtitle">Professional Experience & Enterprise Solutions</p>
 
-  <div class="project-card">
-    <img src="assets/images/toolcatalog.png" alt="ToolCatalog Screenshot">
-    <div>
-      <h3>ToolCatalog</h3>
-      <p>Enterprise tool distribution platform used globally.</p>
-      <a href="#" target="_blank">View Details</a>
+  <!-- Work Experience Section -->
+  <div class="projects-section">
+    <div class="section-header">
+      <h3>Work Experience</h3>
+      <p class="section-description">Enterprise projects and key contributions from my professional career</p>
+    </div>
+
+    <div class="companies-container">
+      <div class="company-section" *ngFor="let company of workExperience">
+        <div class="company-header">
+          <h4>{{ company.name }}</h4>
+          <p class="company-description">{{ company.description }}</p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card" *ngFor="let project of company.projects" [class.expanded]="project.expanded">
+            <!-- Project Summary (Always Visible) -->
+            <div class="project-summary" (click)="toggleProject(project); $event.stopPropagation()">
+              <div class="summary-content">
+                <h5>{{ project.title }}</h5>
+                <p class="overview-text">{{ project.overview }}</p>
+                <div class="role-badge">{{ project.role }}</div>
+              </div>
+              <div class="expand-icon" [class.rotated]="project.expanded">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Project Details (Expanded on Click) -->
+            <div class="project-details" *ngIf="project.expanded">
+              <!-- Key Contributions -->
+              <div class="detail-section">
+                <h6 class="detail-title">Key Contributions</h6>
+                <ul class="contributions-list">
+                  <li *ngFor="let contribution of project.contributions">{{ contribution }}</li>
+                </ul>
+              </div>
+
+              <!-- Impact -->
+              <div class="detail-section">
+                <h6 class="detail-title">Impact</h6>
+                <ul class="impact-list">
+                  <li *ngFor="let item of project.impact">{{ item }}</li>
+                </ul>
+              </div>
+
+              <!-- Technical Highlights -->
+              <div class="detail-section technical-highlights">
+                <h6 class="detail-title">Technical Highlights</h6>
+                
+                <div class="highlight-group">
+                  <label>Tech Stack:</label>
+                  <div class="tech-tags">
+                    <span class="tech-tag" *ngFor="let tech of project.techStack">{{ tech }}</span>
+                  </div>
+                </div>
+
+                <div class="highlight-group">
+                  <label>Architecture:</label>
+                  <div class="arch-tags">
+                    <span class="arch-tag" *ngFor="let arch of project.architecture">{{ arch }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- Personal Projects Section -->
+  <div class="projects-section personal-section" *ngIf="personalProjects.length > 0 || true">
+    <div class="section-header">
+      <h3>Personal Projects</h3>
+      <p class="section-description">Side projects, open source contributions, and learning initiatives</p>
+    </div>
+
+    <div *ngIf="personalProjects.length === 0" class="empty-state">
+      <p>Personal projects coming soon...</p>
+    </div>
+
+    <div class="projects-grid" *ngIf="personalProjects.length > 0">
+      <div class="project-card" *ngFor="let project of personalProjects" [class.expanded]="project.expanded">
+        <!-- Project Summary (Always Visible) -->
+        <div class="project-summary" (click)="toggleProject(project); $event.stopPropagation()">
+          <div class="summary-content">
+            <h5>{{ project.title }}</h5>
+            <p class="overview-text">{{ project.overview }}</p>
+            <div class="role-badge">{{ project.role }}</div>
+          </div>
+          <div class="expand-icon" [class.rotated]="project.expanded">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Project Details (Expanded on Click) -->
+        <div class="project-details" *ngIf="project.expanded">
+          <!-- Key Contributions -->
+          <div class="detail-section">
+            <h6 class="detail-title">Key Contributions</h6>
+            <ul class="contributions-list">
+              <li *ngFor="let contribution of project.contributions">{{ contribution }}</li>
+            </ul>
+          </div>
+
+          <!-- Impact -->
+          <div class="detail-section">
+            <h6 class="detail-title">Impact</h6>
+            <ul class="impact-list">
+              <li *ngFor="let item of project.impact">{{ item }}</li>
+            </ul>
+          </div>
+
+          <!-- Technical Highlights -->
+          <div class="detail-section technical-highlights">
+            <h6 class="detail-title">Technical Highlights</h6>
+            
+            <div class="highlight-group">
+              <label>Tech Stack:</label>
+              <div class="tech-tags">
+                <span class="tech-tag" *ngFor="let tech of project.techStack">{{ tech }}</span>
+              </div>
+            </div>
+
+            <div class="highlight-group">
+              <label>Architecture:</label>
+              <div class="arch-tags">
+                <span class="arch-tag" *ngFor="let arch of project.architecture">{{ arch }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
